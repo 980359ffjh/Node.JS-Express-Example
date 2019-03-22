@@ -1,0 +1,17 @@
+html
+    head
+        meta(charset="utf-8")
+        title Pug html
+        link(rel="stylesheet", href="css/bootstrap.min.css")
+    body
+        div(class="container")
+            div#div2.jumbotron
+                h1(id="h1") Hello from Pug
+            p
+                h2#h2= title
+            ul
+                each val in list
+                    li= val
+        
+        script(src="js/jquery.min.js")
+        script(src="js/bootstrap.min.js")

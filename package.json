@@ -1,0 +1,43 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "express.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "SET DEBUG=app, app:* & nodemon .\\express.js",
+    "eslint": "eslint .\\express.js",
+    "eslint-fix": "eslint --fix .\\express.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.1.3",
+    "chalk": "^2.4.1",
+    "debug": "^4.1.0",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "jquery": "^3.3.1",
+    "mongodb": "^3.1.10",
+    "morgan": "^1.9.1",
+    "mssql": "^4.3.0",
+    "nodemon": "^1.18.7",
+    "pug": "^2.0.3"
+  },
+  "devDependencies": {
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0"
+  },
+  "nodemonConfig": {
+    "restartable": "rs",
+    "ignore": [
+      "node_modules/**/node_modules"
+    ],
+    "delay": "2500",
+    "env": {
+      "NODE_ENV": "development",
+      "PORT": 4000
+    }
+  }
+}
