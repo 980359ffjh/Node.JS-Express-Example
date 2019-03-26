@@ -2,7 +2,7 @@
 const { MongoClient, ObjectID } = require('mongodb');
 const debug = require('debug')('app:bookController');
 
-function bookController(nav) {
+function bookController(bookService, nav) {
   function getAllBooks(req, res) {
     // // mssql
     // (async function sqlQuery() {
@@ -85,6 +85,9 @@ function bookController(nav) {
         const db = client.db(dbName);
         const col = await db.collection('Books');
         const book = await col.findOne({ _id: new ObjectID(id) });
+        debug(book);
+
+        book.details = await bookService.getBookById(book.bookId);
 
         res.render(
           'bookView',
