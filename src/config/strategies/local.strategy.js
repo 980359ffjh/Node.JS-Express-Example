@@ -6,22 +6,23 @@ const debug = require('debug')('app:local.strategy');
 module.exports = function localStrategy() {
   passport.use(new Strategy(
     {
-      userNameField: 'userName',
+      usernameField: 'userName',
       passwordField: 'password'
     }, (userName, password, done) => {
       const url = 'mongodb://localhost:27017';
       const dbName = 'NodeJS';
 
-      (async function addUser() {
+      (async function mongo() {
         let client;
         try {
           client = await MongoClient.connect(url);
           debug('Connected to MongoDB server');
 
           const db = client.db(dbName);
-          const col = await db.collection('Users');
+          const col = db.collection('Users');
 
-          const user = await col.findOne(userName);
+          // Query must be an Object
+          const user = await col.findOne({ userName });
 
           if (user.password === password) {
             done(null, user);

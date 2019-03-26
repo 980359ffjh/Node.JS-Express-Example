@@ -3,13 +3,14 @@
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 		<meta charset="utf-8">
-		<title>Storystrap Template</title>
+		<title><%= title %></title>
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<link href="css/example.css" rel="stylesheet">
 		<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
-		<!--[if lt IE 9]>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <!--[if lt IE 9]>
 			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 		<![endif]-->
 		<link href="css/styles.css" rel="stylesheet">
@@ -94,15 +95,15 @@
           <div class="row">    
             <br>
             <div class="col-md-2 col-sm-3 text-center">
-              Login! Or <a href="/auth/signIn">sign in</a>
-              <form name="loginForm" action="/auth/login" menth="post">
+              <i class="fas fa-user-plus"></i>Sign up! Or <a href='/auth/signIn'><i class="fas fa-sign-in-alt"></i>Sign in</a>
+              <form name="signUpForm" action="/auth/signUp" method="post">
                 <label for="userName">UserName: </label>
-                <input name="userName" id="userName" />
+                <input name="userName" id="userName"/>
                 <br/>
                 <label for="password">Password: </label>
-                <input type="password" name="password" id="password" />
+                <input type="password" name="password" id="password"/>
                 <br/>
-                <input type="submit" value="Login" />
+                <input type="submit" value="Sign up" />
               </form>
             </div>
           </div>

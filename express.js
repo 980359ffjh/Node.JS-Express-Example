@@ -1,3 +1,4 @@
+// require npm lib
 const express = require('express');
 const chalk = require('chalk');
 const debug = require('debug')('app');
@@ -13,10 +14,12 @@ const app = express();
 const port = process.env.PORT || 3000; // package.json setting's PORT
 const nav = [
   { link: '/books', title: 'Books' },
-  { link: '/auth', title: 'Authors' }
+  { link: '/authors', title: 'Authors' }
 ];
-const bookRouter = require('./src/routes/bookRoutes')(nav); // require myself module
-const adminRouter = require('./src/routes/adminRoutes')(nav); // require myself module
+
+// require myself module
+const bookRouter = require('./src/routes/bookRoutes')(nav);
+const adminRouter = require('./src/routes/adminRoutes')(nav);
 const authRouter = require('./src/routes/authRoutes')(nav);
 
 // config for your database

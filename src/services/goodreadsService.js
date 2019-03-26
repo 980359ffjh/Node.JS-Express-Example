@@ -14,7 +14,7 @@ function goodreadsService() {
               debug(err);
             } else {
               debug(result);
-              resolve(result.GoodreadResponse.book);
+              resolve(result.GoodreadsResponse.book);
             }
           });
         })
@@ -28,4 +28,4 @@ function goodreadsService() {
   return { getBookById };
 }
 
-module.exports = goodreadsService;
+module.exports = goodreadsService();

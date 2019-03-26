@@ -6,7 +6,7 @@ const passport = require('passport');
 const authRouter = express.Router();
 
 function router(nav) {
-  authRouter.route('/login')
+  authRouter.route('/signUp')
     .post((req, res) => {
       const { userName, password } = req.body;
       // MongoDB
@@ -20,7 +20,7 @@ function router(nav) {
           debug('Connected to MongoDB server');
 
           const db = client.db(dbName);
-          const col = await db.collection('Users');
+          const col = db.collection('Users');
           const user = { userName, password };
 
           const mongoResponse = await col.insertOne(user);
@@ -32,19 +32,19 @@ function router(nav) {
           debug(err);
         }
 
-        client.close();
+        // client.close();
       }());
     });
 
-  authRouter.route('/signIn')
+  authRouter.route('/signin')
     .get((req, res) => {
-      res.render('signIn', {
+      res.render('signin', {
         nav,
         title: 'Sign In'
       });
     })
     .post(passport.authenticate('local', {
-      successRedirect: '/auth/profile',
+      successRedirect: '/books',
       failureRedirect: '/'
     }));
   authRouter.route('/profile')
